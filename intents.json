@@ -1,0 +1,103 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day"],
+         "responses": ["Hello, thanks for asking", "Good to see you again", "Hi there, how can I help?"],
+         "context": [""]
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
+         "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
+         "context": [""]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure"],
+         "context": [""]
+        },
+        {"tag": "noanswer",
+         "patterns": [],
+         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+         "context": [""]
+        },
+        {"tag": "options",
+         "patterns": ["help me?", "you can do?", "help provide?", "helpful?", "support offer","service"],
+         "responses": ["I can guide you through Adverse drug reaction list, Blood pressure tracking, Hospitals and Pharmacies", "Offering support for Adverse drug reaction, Blood pressure, Hospitals and Pharmacies"],
+         "context": [""]
+        },
+        {"tag": "adverse_drug",
+         "patterns": ["Adverse drug reaction", "adverse drugs module", "adverse behavior", "adverse reaction", "extreme reaction" ],
+         "responses": ["Navigating to Adverse drug reaction module"],
+         "context": [""]
+        },
+        {"tag": "blood_pressure",
+         "patterns": ["blood pressure module", "blood pressure", "Blood pressure data entry"],
+         "responses": [". . . Navigating to Blood Pressure module . . ."],
+         "context": [""]
+        },
+        {"tag": "patient_record_search",
+         "patterns": ["patient's health history", "health records of patient"],
+         "responses": ["Can you please provide Patient ID in (id:) form?", "Patient ID(id:) please?"],
+         "context": ["search_health_record_by_patient_id"]
+        },
+        {"tag": "search_health_record_by_patient_id",
+         "patterns": ["id"],
+         "responses": [". . . . Loading health history result for Patient . . . ."],
+         "context": [""]
+        },
+	{"tag": "address",
+	 "patterns": ["not feeling well","uncomfortable","uneasy","unhealthy","inhealthy"],
+	 "responses": ["How are feeling exactly? Kindly help me with identifying symptoms. ok?"],
+	 "context": ["hbp"]
+	},
+	{"tag": "hbp",
+	 "patterns": ["ok"],
+	 "responses": ["did your symptoms inlcude severe headache, nosebleed, fatigue, chest pain, irregular heartbeats, blurred vision ? yes or no ?"],
+	 "context": ["hbp_disease"]
+	},
+	{"tag": "hbp_disease",
+	 "patterns": ["yes"],
+	 "responses": ["symptoms indicates high blood pressure"],
+	 "context": ["hbp_medicines"]
+	},
+	{"tag": "hbp_medicines",
+	 "patterns": ["medicine high bp","medicines high bp","cure high bp","treatment high bp"],
+	 "responses": ["Use Irbesartan or Lisinopril once a day for three weeks. If symptoms are not mild, kindly consult our cardiologist"],
+	 "context": ["pharmacy_search"]
+	},
+	{"tag": "l_bp",
+	 "patterns": ["no"],
+	 "responses": ["did your symptoms inlcude light headedness, feeling sick, fainting, feeling week, nausea, unusual thirst, blurred vision ? y | n ?"],
+	 "context": ["lbp"]
+	},
+	{"tag": "lbp",
+	 "patterns": ["y"],
+	 "responses": ["symptoms indicates low blood pressure"],
+	 "context": ["lbp_medicines"]
+	},
+	{"tag": "n",
+	 "patterns": ["n"],
+	 "responses": ["I cannot predict your illness. Kindly consult with our general doctor"],
+	 "context": [""]
+	},
+	{"tag": "lbp_medicines",
+	 "patterns": ["medicine for low bp","medicines low bp","cure low bp","treatment low bp"],
+	 "responses": ["Use fludrocortisone or Midodrine once a day for three weeks. If symptoms are not mild, kindly consult our cardiologist"],
+	 "context": ["pharmacy_search"]
+	},
+        {"tag": "pharmacy_search",
+         "patterns": ["Find pharmacy", "List of pharmacies nearby", "Locate pharmacy", "Search pharmacy"],
+         "responses": [". . . Loading pharmacy details near by . . ."],
+         "context": [""]
+        },
+        {"tag": "doctor_search",
+         "patterns": ["doctor","find doctors"],
+         "responses": [". . . Navigating to list of doctors . . ."],
+         "context": ["search_hospital_by_params"]
+        },
+        {"tag": "appoinments",
+         "patterns": ["fix appoinment","set appoinment","consult doctor"],
+         "responses": [". . . Navigating to appoinments page . .  ."],
+         "context": ["search_hospital_by_type"]
+        }
+   ]
+}
